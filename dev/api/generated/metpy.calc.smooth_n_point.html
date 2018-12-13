@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>inverse_distance_to_points &mdash; MetPy 0.9</title>
+  <title>smooth_n_point &mdash; MetPy 0.9</title>
   
 
   
@@ -17,7 +17,7 @@
   
   
   
-    <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.interpolate.inverse_distance_to_points.html"/>
+    <link rel="canonical" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.calc.smooth_n_point.html"/>
   
 
   
@@ -44,9 +44,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="MetPy 0.9" href="../../index.html"/>
-        <link rel="up" title="interpolate" href="metpy.interpolate.html"/>
-        <link rel="next" title="log_interpolate_1d" href="metpy.interpolate.log_interpolate_1d.html"/>
-        <link rel="prev" title="inverse_distance_to_grid" href="metpy.interpolate.inverse_distance_to_grid.html"/> 
+        <link rel="up" title="calc" href="metpy.calc.html"/>
+        <link rel="next" title="get_wind_components" href="metpy.calc.get_wind_components.html"/>
+        <link rel="prev" title="smooth_gaussian" href="metpy.calc.smooth_gaussian.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -127,30 +127,35 @@
 <li class="toctree-l2"><a class="reference internal" href="metpy.units.html">units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metpy.io.html">io</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metpy.io.cdm.html">cdm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metpy.calc.html">calc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metpy.plots.html">plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metpy.plots.ctables.html">ctables</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="metpy.interpolate.html">interpolate</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.cross_section.html">cross_section</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.geodesic.html">geodesic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.interpolate.html">interpolate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.interpolate_1d.html">interpolate_1d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.interpolate_nans_1d.html">interpolate_nans_1d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.interpolate_to_grid.html">interpolate_to_grid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.interpolate_to_points.html">interpolate_to_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.interpolate_to_slice.html">interpolate_to_slice</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.inverse_distance.html">inverse_distance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.inverse_distance_to_grid.html">inverse_distance_to_grid</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">inverse_distance_to_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.log_interpolate_1d.html">log_interpolate_1d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.natural_neighbor.html">natural_neighbor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.natural_neighbor_to_grid.html">natural_neighbor_to_grid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.natural_neighbor_to_points.html">natural_neighbor_to_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.remove_nan_observations.html">remove_nan_observations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.remove_observations_below_value.html">remove_observations_below_value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.interpolate.remove_repeat_coordinates.html">remove_repeat_coordinates</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="metpy.calc.html">calc</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#dry-thermodynamics">Dry Thermodynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#moist-thermodynamics">Moist Thermodynamics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#soundings">Soundings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#dynamic-kinematic">Dynamic/Kinematic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#boundary-layer-turbulence">Boundary Layer/Turbulence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#mathematical-functions">Mathematical Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#apparent-temperature">Apparent Temperature</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="metpy.calc.html#other">Other</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.find_bounding_indices.html">find_bounding_indices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.find_intersections.html">find_intersections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.get_layer.html">get_layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.get_layer_heights.html">get_layer_heights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.get_perturbation.html">get_perturbation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.isentropic_interpolation.html">isentropic_interpolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.nearest_intersection_idx.html">nearest_intersection_idx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.parse_angle.html">parse_angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.reduce_point_density.html">reduce_point_density</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.resample_nn_1d.html">resample_nn_1d</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metpy.calc.smooth_gaussian.html">smooth_gaussian</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">smooth_n_point</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.html#deprecated">Deprecated</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metpy.plots.html">plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metpy.plots.ctables.html">ctables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metpy.interpolate.html">interpolate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metpy.gridding.html">gridding</a></li>
 </ul>
 </li>
@@ -206,9 +211,9 @@
         
           <li><a href="../index.html">Reference Guide</a> &raquo;</li>
         
-          <li><a href="metpy.interpolate.html">interpolate</a> &raquo;</li>
+          <li><a href="metpy.calc.html">calc</a> &raquo;</li>
         
-      <li>inverse_distance_to_points</li>
+      <li>smooth_n_point</li>
     
     
     <li class="source-link">
@@ -216,7 +221,7 @@
             
                 
                 
-                <a href="https://github.com/Unidata/MetPy/issues/new?title=Suggested%20improvement%20for%20api/generated/metpy.interpolate.inverse_distance_to_points&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                <a href="https://github.com/Unidata/MetPy/issues/new?title=Suggested%20improvement%20for%20api/generated/metpy.calc.smooth_n_point&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
                    class="fa fa-github"> Improve this page</a>
             
         
@@ -230,42 +235,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="inverse-distance-to-points">
-<h1>inverse_distance_to_points<a class="headerlink" href="#inverse-distance-to-points" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="smooth-n-point">
+<h1>smooth_n_point<a class="headerlink" href="#smooth-n-point" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="metpy.interpolate.inverse_distance_to_points">
-<code class="descclassname">metpy.interpolate.</code><code class="descname">inverse_distance_to_points</code><span class="sig-paren">(</span><em>points</em>, <em>values</em>, <em>xi</em>, <em>r</em>, <em>gamma=None</em>, <em>kappa=None</em>, <em>min_neighbors=3</em>, <em>kind='cressman'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/metpy/interpolate/points.html#inverse_distance_to_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metpy.interpolate.inverse_distance_to_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate an inverse distance weighting interpolation to the given points.</p>
-<p>Values are assigned to the given interpolation points based on either <a class="reference internal" href="../../references.html#cressman1959" id="id1">[Cressman1959]</a> or
-<a class="reference internal" href="../../references.html#barnes1964" id="id2">[Barnes1964]</a>. The Barnes implementation used here based on <a class="reference internal" href="../../references.html#koch1983" id="id3">[Koch1983]</a>.</p>
+<dt id="metpy.calc.smooth_n_point">
+<code class="descclassname">metpy.calc.</code><code class="descname">smooth_n_point</code><span class="sig-paren">(</span><em>scalar_grid</em>, <em>n=5</em>, <em>passes=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/metpy/calc/basic.html#smooth_n_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#metpy.calc.smooth_n_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter with normal distribution of weights.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>points</strong> (<em>array_like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>2</em><em>)</em>) – Coordinates of the data points.</li>
-<li><strong>values</strong> (<em>array_like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>,</em><em>)</em>) – Values of the data points.</li>
-<li><strong>xi</strong> (<em>array_like</em><em>, </em><em>shape</em><em> (</em><em>M</em><em>, </em><em>2</em><em>)</em>) – Points to interpolate the data onto.</li>
-<li><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Radius from grid center, within which observations
-are considered and weighted.</li>
-<li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Adjustable smoothing parameter for the barnes interpolation. Default None.</li>
-<li><strong>kappa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – Response parameter for barnes interpolation. Default None.</li>
-<li><strong>min_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Minimum number of neighbors needed to perform barnes or cressman interpolation
-for a point. Default is 3.</li>
-<li><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Specify what inverse distance weighting interpolation to use.
-Options: ‘cressman’ or ‘barnes’. Default ‘cressman’</li>
+<li><strong>scalar_grid</strong> (array-like or <em class="xref py py-obj">pint.Quantity</em>) – Some 2D scalar grid to be smoothed.</li>
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The number of points to use in smoothing, only valid inputs
+are 5 and 9. Defaults to 5.</li>
+<li><strong>passes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The number of times to apply the filter to the grid. Defaults
+to 1.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>img</strong> (<em>(M,) ndarray</em>) – Array representing the interpolated values for each input point in <em class="xref py py-obj">xi</em></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">array-like or <em class="xref py py-obj">pint.Quantity</em> – The filtered 2D scalar grid.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="metpy.interpolate.inverse_distance_to_grid.html#metpy.interpolate.inverse_distance_to_grid" title="metpy.interpolate.inverse_distance_to_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">inverse_distance_to_grid()</span></code></a></p>
-</div>
+<p class="rubric">Notes</p>
+<p>This function is a close replication of the GEMPAK function SM5S
+and SM9S depending on the choice of the number of points to use
+for smoothing. This function can be applied multiple times to
+create a more smoothed field and will only smooth the interior
+points, leaving the end points with their original values. If a
+masked value or NaN values exists in the array, it will propagate
+to any point that uses that particular grid point in the smoothing
+calculation. Applying the smoothing function multiple times will
+propogate NaNs further throughout the domain.</p>
 </dd></dl>
 
 <div style='clear:both'></div></div>
@@ -280,10 +283,10 @@ Options: ‘cressman’ or ‘barnes’. Default ‘cressman’</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="metpy.interpolate.log_interpolate_1d.html" class="btn btn-neutral float-right" title="log_interpolate_1d" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="metpy.calc.get_wind_components.html" class="btn btn-neutral float-right" title="get_wind_components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="metpy.interpolate.inverse_distance_to_grid.html" class="btn btn-neutral" title="inverse_distance_to_grid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="metpy.calc.smooth_gaussian.html" class="btn btn-neutral" title="smooth_gaussian" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

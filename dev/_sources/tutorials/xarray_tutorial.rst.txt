@@ -238,7 +238,7 @@ straightforward as using the ``data_var.metpy.cartopy_crs`` property:
 
  .. code-block:: none
 
-    <cartopy.crs.PlateCarree object at 0x2ae199a59a98>
+    <cartopy.crs.PlateCarree object at 0x7fbfb5a48eb8>
 
 
 The cartopy ``Globe`` can similarly be accessed via the ``data_var.metpy.cartopy_globe``
@@ -262,7 +262,7 @@ property:
 
  .. code-block:: none
 
-    <cartopy._crs.Globe object at 0x2ae195bd1940>
+    <cartopy._crs.Globe object at 0x7fbfb82e7358>
 
 
 Calculations
@@ -389,7 +389,6 @@ the data.
 
     # Let's add a projection and coastlines to it
     ax = plt.axes(projection=ccrs.LambertConformal())
-    ax._hold = True  # Work-around for CartoPy 0.16/Matplotlib 3.0.0 incompatibility
     data['height'].loc[time[0]].loc[{vertical.name: 500.}].plot(ax=ax, transform=data_crs)
     ax.coastlines()
     plt.show()
@@ -443,8 +442,8 @@ the data.
                    edgecolor='#c7c783', zorder=0)
 
     # Set a title and show the plot
-    ax.set_title(('500 hPa Heights (m), Temperature (K), Humidity (%) at ' +
-                  time[0].dt.strftime('%Y-%m-%d %H:%MZ')))
+    ax.set_title('500 hPa Heights (m), Temperature (K), Humidity (%) at '
+                 + time[0].dt.strftime('%Y-%m-%d %H:%MZ'))
     plt.show()
 
 
@@ -571,7 +570,7 @@ Fix 2 (unit array broadcasting):
 
 
 
-**Total running time of the script:** ( 0 minutes  2.569 seconds)
+**Total running time of the script:** ( 0 minutes  1.777 seconds)
 
 
 .. _sphx_glr_download_tutorials_xarray_tutorial.py:
